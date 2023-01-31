@@ -1,0 +1,48 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jan  5 10:46:13 2023
+# Process ID: 68356
+# Current directory: E:/ip_repo/SensorADC_axis/managed_ip_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent66956 E:\ip_repo\SensorADC_axis\managed_ip_project\managed_ip_project.xpr
+# Log file: E:/ip_repo/SensorADC_axis/managed_ip_project/vivado.log
+# Journal file: E:/ip_repo/SensorADC_axis/managed_ip_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/ip_repo/SensorADC_axis/managed_ip_project/managed_ip_project.xpr
+ipx::edit_ip_in_project -upgrade true -name ADC_Sensor_axis_v1_0_project -directory E:/ip_repo/SensorADC_axis/managed_ip_project/managed_ip_project.tmp/ADC_Sensor_axis_v1_0_project e:/ip_repo/SensorADC_axis/ip_repo/ADC_Sensor_axis_1.0/component.xml
+update_compile_order -fileset sources_1
+set_property  ip_repo_paths  {} [current_project]
+update_ip_catalog
+set_property  ip_repo_paths  E:/ip_repo [current_project]
+update_ip_catalog
+upgrade_ip -vlnv adcom.local:user:SPI_Sensor:1.0 [get_ips  SPI_Sensor_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips SPI_Sensor_0] -no_script -sync -force -quiet
+generate_target all [get_files  e:/ip_repo/SensorADC_axis/ip_repo/ADC_Sensor_axis_1.0/src/SPI_Sensor_0/SPI_Sensor_0.xci]
+catch { config_ip_cache -export [get_ips -all SPI_Sensor_0] }
+export_ip_user_files -of_objects [get_files e:/ip_repo/SensorADC_axis/ip_repo/ADC_Sensor_axis_1.0/src/SPI_Sensor_0/SPI_Sensor_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] e:/ip_repo/SensorADC_axis/ip_repo/ADC_Sensor_axis_1.0/src/SPI_Sensor_0/SPI_Sensor_0.xci]
+launch_runs SPI_Sensor_0_synth_1 -jobs 4
+wait_on_run SPI_Sensor_0_synth_1
+export_simulation -of_objects [get_files e:/ip_repo/SensorADC_axis/ip_repo/ADC_Sensor_axis_1.0/src/SPI_Sensor_0/SPI_Sensor_0.xci] -directory e:/ip_repo/sensoradc_axis/managed_ip_project/managed_ip_project.tmp/adc_sensor_axis_v1_0_project/ADC_Sensor_axis_v1_0_project.ip_user_files/sim_scripts -ip_user_files_dir e:/ip_repo/sensoradc_axis/managed_ip_project/managed_ip_project.tmp/adc_sensor_axis_v1_0_project/ADC_Sensor_axis_v1_0_project.ip_user_files -ipstatic_source_dir e:/ip_repo/sensoradc_axis/managed_ip_project/managed_ip_project.tmp/adc_sensor_axis_v1_0_project/ADC_Sensor_axis_v1_0_project.ip_user_files/ipstatic -lib_map_path [list {modelsim=e:/ip_repo/sensoradc_axis/managed_ip_project/managed_ip_project.tmp/adc_sensor_axis_v1_0_project/ADC_Sensor_axis_v1_0_project.cache/compile_simlib/modelsim} {questa=e:/ip_repo/sensoradc_axis/managed_ip_project/managed_ip_project.tmp/adc_sensor_axis_v1_0_project/ADC_Sensor_axis_v1_0_project.cache/compile_simlib/questa} {riviera=e:/ip_repo/sensoradc_axis/managed_ip_project/managed_ip_project.tmp/adc_sensor_axis_v1_0_project/ADC_Sensor_axis_v1_0_project.cache/compile_simlib/riviera} {activehdl=e:/ip_repo/sensoradc_axis/managed_ip_project/managed_ip_project.tmp/adc_sensor_axis_v1_0_project/ADC_Sensor_axis_v1_0_project.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+ipx::edit_ip_in_project -upgrade true -name ADC_Sensor_axis_v1_0_project -directory e:/ip_repo/sensoradc_axis/managed_ip_project/managed_ip_project.tmp/adc_sensor_axis_v1_0_project/ADC_Sensor_axis_v1_0_project.tmp/ADC_Sensor_axis_v1_0_project e:/ip_repo/SensorADC_axis/ip_repo/ADC_Sensor_axis_1.0/component.xml
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+set_property part xczu5ev-sfvc784-2-i [current_project]
+upgrade_ip -srcset SPI_Sensor_0 -vlnv adcom.local:user:SPI_Sensor:1.0 [get_ips  SPI_Sensor_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips SPI_Sensor_0] -no_script -sync -force -quiet
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+ipx::merge_project_changes files [ipx::current_core]
+set_property core_revision 6 [ipx::current_core]
+ipx::update_source_project_archive -component [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path e:/ip_repo/SensorADC_axis/ip_repo/ADC_Sensor_axis_1.0
